@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Live Demo: Next-Gen SAP & GenAI</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: #f4f6f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        
+        /* Main Layout Box Wrapper matching Flyer Dimensions */
+        .flyer-wrapper { width: 800px; background: white; box-shadow: 0 12px 35px rgba(0,0,0,0.12); display: flex; flex-direction: column; overflow: hidden; border-radius: 4px; }
+        
+        /* Dark Blue Header Block */
+        .header { background: #003366; color: white; padding: 35px 20px; text-align: center; }
+        .header h1 { font-size: 30px; font-weight: 800; color: #ffffff; margin-bottom: 6px; letter-spacing: 0.5px; }
+        .header .topics { font-size: 15px; color: #e2e8f0; margin-bottom: 18px; font-weight: 500; }
+        .header .schedule-badge { font-size: 16px; font-weight: 700; color: #ff6b21; background: rgba(255,107,33,0.1); display: inline-block; padding: 8px 18px; border-radius: 4px; border: 1px solid rgba(255,107,33,0.3); }
+        
+        /* Side-By-Side Main Layout Grid Space */
+        .grid-space { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 35px; background: #ffffff; }
+        .info-card { background: white; border: 1px solid #e2e8f0; border-radius: 6px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.01); }
+        .info-card h2 { font-size: 19px; color: #003366; border-bottom: 3px solid #003366; padding-bottom: 6px; margin-bottom: 18px; font-weight: 700; }
+        
+        /* Metric Styling Details */
+        .metric-item { font-size: 14.5px; font-weight: 700; color: #1e293b; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .bio-text { font-size: 13.5px; color: #64748b; line-height: 1.6; margin-top: 15px; font-style: italic; border-top: 1px dashed #e2e8f0; padding-top: 12px; }
+        
+        /* Bullet Lists for Features Mapping */
+        .feature-list { list-style: none; }
+        .feature-list li { font-size: 13.5px; color: #334155; margin-bottom: 14px; line-height: 1.5; padding-left: 22px; position: relative; }
+        .feature-list li::before { content: "✔"; position: absolute; left: 0; color: #ff6b21; font-weight: bold; }
+        .feature-list li strong { color: #0f172a; }
+        
+        /* Audience Segment Banner Details */
+        .audience-bar { text-align: center; padding: 20px 40px; background: #ffffff; border-top: 1px solid #e2e8f0; }
+        .audience-bar h3 { font-size: 15px; color: #003366; margin-bottom: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+        .audience-bar p { font-size: 13px; color: #475569; }
+        
+        /* Orange Bottom Action Footer */
+        .footer { background: #ff6b21; color: white; text-align: center; padding: 15px 10px; }
+        .footer .cta-headline { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.5px; }
+        .footer .contact-details { font-size: 13px; font-weight: 500; opacity: 0.95; }
+    </style>
+</head>
+<body>
+
+    <div class="flyer-wrapper">
+        <!-- Blue Header -->
+        <div class="header">
+            <h1>FREE LIVE DEMO: NEXT-GEN SAP & GENAI</h1>
+            <div class="topics">Mastering SAP Joule • SAP BTP • RAP • Cloud ABAP • Fiori</div>
+            <div class="schedule-badge">📅 Sunday, August 30th, 2026 &nbsp;|&nbsp; ⏰ 8:00 AM – 9:00 AM IST</div>
+        </div>
+        
+        <!-- Center Cards Grid -->
+        <div class="grid-space">
+            <!-- Left Instructor Card -->
+            <div class="info-card">
+                <h2>Meet Your Instructor</h2>
+                <div class="metric-item">⭐ 16+ Years Industry Experience</div>
+                <div class="metric-item">🎓 4000+ Students Successfully Trained</div>
+                <p class="bio-text">Bobby is a Senior SAP Consultant working at a leading MNC, specializing in enterprise Cloud Architecture, RAP, BTP, and modern development frameworks.</p>
+            </div>
+            
+            <!-- Right Features Card -->
+            <div class="info-card">
+                <h2>Why Join This Training?</h2>
+                <ul class="feature-list">
+                    <li><strong>Job-Oriented Curriculum:</strong> Focused completely on live end-to-end industry scenarios.</li>
+                    <li><strong>Flexible Learning:</strong> Get access to interactive live sessions + recording options.</li>
+                    <li><strong>Hands-on Practice:</strong> Real-world exercises assigned every single Friday.</li>
+                    <li><strong>Interview Preparation:</strong> Comprehensive study notes, design diagrams, and Q&A kits.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Audience Note Row -->
+        <div class="audience-bar">
+            <h3>Target Audience & Prerequisites</h3>
+            <p>Designed for Freshers, SAP Developers, and IT Professionals. Minimum prerequisite: Any basic programming background.</p>
+        </div>
+        
+        <!-- Orange Footer Banner -->
+        <div class="footer">
+            <div class="cta-headline">👇 REGISTRATION LINK IS IN THE LINKEDIN POST COMMENTS BELOW!</div>
+            <div class="contact-details">📞 Contact: +91 8884473675 &nbsp;|&nbsp; ✉ Email: bobby.sapui5@gmail.com</div>
+        </div>
+    </div>
+
+</body>
+</html>
