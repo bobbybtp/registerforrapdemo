@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Masterclass: Next-Gen SAP & GenAI</title>
-    <!-- Google Fonts for premium clean rendering -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,7 +21,6 @@
             --card-shadow: 0 12px 30px rgba(0, 102, 204, 0.06);
         }
 
-        /* Enforce absolute single-page visibility view constraints */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { height: 100%; overflow: hidden; background: #EAF2F8; font-family: 'Plus Jakarta Sans', sans-serif; }
         body { display: flex; align-items: center; justify-content: center; padding: 15px; }
@@ -39,7 +37,6 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            /* Entrance fade-in sequence for main panel canvas framework */
             animation: mainFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
@@ -55,7 +52,6 @@
             z-index: 1;
         }
 
-        /* Global Animation Sequences Keyframe Definitions */
         @keyframes mainFadeIn {
             0% { opacity: 0; transform: translateY(15px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -131,7 +127,7 @@
             max-width: 220px;
             line-height: 1.3;
         }
-        /* Two-Column Side-by-Side Content Workspace Area */
+        /* Workspace Setup */
         .workspace-grid {
             flex: 1;
             display: grid;
@@ -146,12 +142,27 @@
 
         .left-content-pane { display: flex; flex-direction: column; gap: 10px; height: 100%; justify-content: center; }
         
-        /* Cascade entrance tracking loops for Left Elements */
         .left-content-pane > * { animation: contentSlideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
         .left-content-pane > *:nth-child(1) { animation-delay: 0.3s; }
         .left-content-pane > *:nth-child(2) { animation-delay: 0.4s; }
         .left-content-pane > *:nth-child(3) { animation-delay: 0.5s; }
-        .left-content-pane > *:nth-child(4) { animation-delay: 0.6s; }
+
+        /* Upgraded Highlighted Top Date Strip */
+        .datetime-strip {
+            background: #FFFBEB;
+            border: 1.5px solid #F59E0B;
+            border-radius: 8px;
+            padding: 10px 16px;
+            display: flex;
+            gap: 35px;
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--dark-navy);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.08);
+        }
+
+        .datetime-strip span i { color: #D97706; margin-right: 4px; }
+        .datetime-strip span strong { color: var(--accent-orange); font-size: 0.95rem; }
 
         .theory-warning-banner {
             background: #FFF5ED;
@@ -169,19 +180,7 @@
         }
 
         .theory-warning-banner p { font-size: 0.78rem; line-height: 1.35; color: var(--text-main); font-weight: 600; }
-        .datetime-strip {
-            background: #F0F7FF;
-            border: 1px dashed var(--sky-blue);
-            border-radius: 8px;
-            padding: 8px 14px;
-            display: flex;
-            gap: 30px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--dark-navy);
-        }
-
-        .datetime-strip span strong { color: #E65C00; }
+        
         .info-white-card { background: #FFFFFF; border-radius: 12px; padding: 12px 16px; box-shadow: var(--card-shadow); border: 1px solid rgba(0,102,204,0.03); }
         .info-white-card h3 { font-size: 0.95rem; color: var(--dark-navy); margin-bottom: 6px; border-bottom: 2px solid #F1F5F9; padding-bottom: 4px; }
         .custom-check-list { list-style: none; }
@@ -197,7 +196,7 @@
         .tag-pill { background: #FFFFFF; border: 1px solid #CBD5E1; padding: 2px 6px; border-radius: 4px; font-size: 0.68rem; font-weight: 700; }
         .mentor-bio-text { font-size: 0.75rem; color: #475569; line-height: 1.35; }
 
-        /* Right Circular Blueprint Diagram System Layout Rules */
+        /* Right Circular Blueprint Diagram */
         .right-diagram-pane { display: flex; justify-content: center; align-items: center; height: 100%; position: relative; }
         .diagram-orbit-container { position: relative; width: 320px; height: 320px; }
         .orbit-dashed-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 230px; height: 230px; border: 1.5px dashed #CBD5E1; border-radius: 50%; z-index: 1; opacity: 0.7; }
@@ -207,11 +206,8 @@
         
         .satellite-node-item { position: absolute; width: 62px; height: 62px; background: white; border: 2px solid var(--sap-blue); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 0.7rem; font-weight: 700; color: var(--dark-navy); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); z-index: 3; padding: 2px; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
         .satellite-node-item i { font-size: 0.85rem; color: var(--accent-orange); margin-bottom: 2px; }
-
-        /* Smooth active mouse hover styling elements */
         .satellite-node-item:hover { transform: scale(1.12); z-index: 20; border-color: var(--sky-blue); cursor: pointer; }
 
-        /* Perfect Symmetrical Circular Coordinate Map Positioning Loop */
         .node-pos-1 { top: 0; left: 50%; transform: translateX(-50%); animation: satellitePop 0.5s ease-out 0.6s both; }
         .node-pos-2 { top: 22%; right: 2%; animation: satellitePop 0.5s ease-out 0.7s both; }
         .node-pos-3 { bottom: 22%; right: 2%; animation: satellitePop 0.5s ease-out 0.8s both; }
@@ -219,18 +215,15 @@
         .node-pos-5 { bottom: 22%; left: 2%; animation: satellitePop 0.5s ease-out 1.0s both; }
         .node-pos-6 { top: 22%; left: 2%; animation: satellitePop 0.5s ease-out 1.1s both; }
 
-        /* Restore clean positioning integrity for interactive mouse events override override */
         .node-pos-1:hover { transform: translateX(-50%) scale(1.12); }
         .node-pos-4:hover { transform: translateX(-50%) scale(1.12); }
 
         .urgency-seal { position: absolute; bottom: 15px; right: 15px; background: var(--accent-orange); color: white; width: 72px; height: 72px; border-radius: 50%; border: 2px dashed white; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.65rem; font-weight: 900; transform: rotate(-10deg); box-shadow: 0 6px 15px rgba(255, 51, 0, 0.2); z-index: 6; line-height: 1.2; font-family: 'Outfit', sans-serif; animation: satellitePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s both; }
         
-        /* Features Matrix Bar Styles */
         .bottom-features-bar { background: #F8FAFC; border-top: 1px solid #E2E8F0; display: grid; grid-template-columns: repeat(4, 1fr); padding: 12px 40px; gap: 20px; z-index: 2; animation: contentSlideDown 0.6s ease-out 0.4s both; }
         .matrix-box-item { text-align: center; font-size: 0.72rem; color: #475569; font-weight: 500; }
         .matrix-box-item strong { display: block; color: var(--dark-navy); font-size: 0.82rem; font-weight: 700; margin-bottom: 1px; }
 
-        /* Yellow CTA Ribbon Action Footer */
         .action-strip-footer { background: #FFCC00; color: var(--dark-navy); padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 0.8rem; z-index: 2; border-top: 1.5px solid #E2B600; font-family: 'Outfit', sans-serif; animation: contentSlideDown 0.6s ease-out 0.5s both; }
         .footer-left-cta { font-weight: 800; display: flex; align-items: center; gap: 6px; }
         .footer-left-cta i { color: var(--accent-orange); }
@@ -254,19 +247,21 @@
             </div>
         </header>
 
-        <!-- Dynamic Content Columns Wrapper Row -->
+        <!-- Dynamic Content Workspace Area -->
         <main class="workspace-grid">
             
             <!-- Left Information Column Area -->
             <section class="left-content-pane">
+                
+                <!-- MOVED: Highlighted Parameter Date & Time Ribbon Row at Top -->
+                <div class="datetime-strip">
+                    <span><i class="fa-solid fa-calendar-days"></i> Sunday, November 8th, 2026</span>
+                    <span><i class="fa-solid fa-clock"></i> 8:00 AM – 9:00 AM IST</span>
+                </div>
+
                 <div class="theory-warning-banner">
                     <h3><i class="fa-solid fa-triangle-exclamation"></i> STOP LEARNING SAP THEORY. START BUILDING REAL-TIME PROJECTS!</h3>
                     <p>If you aren't building Agentic AI workflows and mastering SAP Build/RAP in 2026, you are leaving high-paying MNC opportunities on the table. Transform from a Traditional ABAPer into a highly-certified BTP Cloud Architect!</p>
-                </div>
-
-                <div class="datetime-strip">
-                    <span><i class="fa-solid fa-calendar-days"></i> Sunday, NOvember 8th, 2026</span>
-                    <span><i class="fa-solid fa-clock"></i> 8:00 AM – 9:00 AM IST</span>
                 </div>
 
                 <div class="info-white-card">
