@@ -3,89 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Live Demo: Next-Gen SAP & GenAI</title>
+    <title>Next-Gen SAP & GenAI Masterclass</title>
+    <!-- Modern crisp typography matching the second layout structure -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background: #f4f6f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        /* Global Reset and Layout Base Styling */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #f0f4f8; font-family: 'Plus Jakarta Sans', Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px 20px; }
         
-        /* Main Layout Box Wrapper matching Flyer Dimensions */
-        .flyer-wrapper { width: 800px; background: white; box-shadow: 0 12px 35px rgba(0,0,0,0.12); display: flex; flex-direction: column; overflow: hidden; border-radius: 4px; }
+        /* Master Layout Container mimicking High-Res Flyer aspect ratio */
+        .flyer-canvas { width: 1100px; background: #ffffff; position: relative; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,51,102,0.08); overflow: hidden; display: flex; flex-direction: column; }
         
-        /* Dark Blue Header Block */
-        .header { background: #003366; color: white; padding: 35px 20px; text-align: center; }
-        .header h1 { font-size: 30px; font-weight: 800; color: #ffffff; margin-bottom: 6px; letter-spacing: 0.5px; }
-        .header .topics { font-size: 15px; color: #e2e8f0; margin-bottom: 18px; font-weight: 500; }
-        .header .schedule-badge { font-size: 16px; font-weight: 700; color: #ff6b21; background: rgba(255,107,33,0.1); display: inline-block; padding: 8px 18px; border-radius: 4px; border: 1px solid rgba(255,107,33,0.3); }
+        /* Header Segment Framework styling */
+        .header-section { padding: 35px 40px 20px 40px; position: relative; display: flex; justify-content: space-between; align-items: flex-start; }
+        .header-left { max-width: 70%; }
+        .masterclass-badge { background: #003366; color: white; font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; letter-spacing: 0.5px; margin-bottom: 12px; }
+        .main-title { font-family: 'Outfit', sans-serif; font-size: 38px; font-weight: 800; color: #0066cc; line-height: 1.2; margin-bottom: 6px; }
+        .subtitle { font-size: 15px; color: #475569; font-weight: 500; }
         
-        /* Side-By-Side Main Layout Grid Space */
-        .grid-space { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 35px; background: #ffffff; }
-        .info-card { background: white; border: 1px solid #e2e8f0; border-radius: 6px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.01); }
-        .info-card h2 { font-size: 19px; color: #003366; border-bottom: 3px solid #003366; padding-bottom: 6px; margin-bottom: 18px; font-weight: 700; }
+        /* Top Right Callout Shape badge */
+        .shape-badge { background: #0066cc; color: white; padding: 14px 22px; border-radius: 25px 4px 25px 25px; font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; text-align: center; line-height: 1.3; box-shadow: 0 4px 12px rgba(0,102,204,0.2); }
         
-        /* Metric Styling Details */
-        .metric-item { font-size: 14.5px; font-weight: 700; color: #1e293b; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .bio-text { font-size: 13.5px; color: #64748b; line-height: 1.6; margin-top: 15px; font-style: italic; border-top: 1px dashed #e2e8f0; padding-top: 12px; }
+        /* Two-Column Layout Grid Space */
+        .main-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; padding: 0 40px 30px 40px; align-items: start; }
         
-        /* Bullet Lists for Features Mapping */
-        .feature-list { list-style: none; }
-        .feature-list li { font-size: 13.5px; color: #334155; margin-bottom: 14px; line-height: 1.5; padding-left: 22px; position: relative; }
-        .feature-list li::before { content: "✔"; position: absolute; left: 0; color: #ff6b21; font-weight: bold; }
-        .feature-list li strong { color: #0f172a; }
+        /* Red Alert Box Callout Style */
+        .alert-callout { border: 2px dashed #dc2626; background: #fef2f2; border-radius: 6px; padding: 16px 20px; margin-bottom: 20px; }
+        .alert-headline { color: #dc2626; font-size: 13.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+        .alert-body { color: #4b5563; font-size: 12.5px; font-weight: 500; line-height: 1.5; }
+        /* Micro-badge Metadata Row Styling */
+        .meta-schedule-row { display: flex; gap: 15px; margin-bottom: 25px; }
+        .meta-pill { flex: 1; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; border: 1px solid #bae6fd; }
+        .meta-pill.orange-pill { background: #fff7ed; border-color: #ffedd5; color: #ea580c; }
+        .meta-pill.blue-pill { background: #f0fdfa; border-color: #ccfbf1; color: #0d9488; }
         
-        /* Audience Segment Banner Details */
-        .audience-bar { text-align: center; padding: 20px 40px; background: #ffffff; border-top: 1px solid #e2e8f0; }
-        .audience-bar h3 { font-size: 15px; color: #003366; margin-bottom: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
-        .audience-bar p { font-size: 13px; color: #475569; }
+        /* Features and Curriculum Content Blocks */
+        .section-title-wrapper { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+        .section-title-wrapper i { color: #0066cc; font-size: 15px; }
+        .section-h2 { font-size: 15px; color: #0f172a; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2px; }
         
-        /* Orange Bottom Action Footer */
-        .footer { background: #ff6b21; color: white; text-align: center; padding: 15px 10px; }
-        .footer .cta-headline { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.5px; }
-        .footer .contact-details { font-size: 13px; font-weight: 500; opacity: 0.95; }
+        /* Checklist UI Elements Grid layout mappings */
+        .checklist-wrapper { display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; }
+        .checklist-item { display: flex; gap: 10px; align-items: flex-start; }
+        .checklist-item i { color: #16a34a; font-size: 14px; margin-top: 2px; }
+        .checklist-content { font-size: 13px; color: #334155; line-height: 1.45; }
+        .checklist-content strong { color: #0f172a; font-weight: 700; }
+        
+        /* Instructor Profile Frame Box matching flyer specs */
+        .instructor-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; position: relative; }
+        .instructor-top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; }
+        .mentor-identity { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; color: #0f172a; }
+        .badge-container { display: flex; gap: 8px; }
+        .instructor-mini-badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; border: 1px solid; }
+        .instructor-mini-badge.yellow { background: #fef9c3; border-color: #fef08a; color: #a16207; }
+        .instructor-mini-badge.blue { background: #dbeafe; border-color: #bfdbfe; color: #1d4ed8; }
+        .instructor-bio { font-size: 12.5px; color: #475569; line-height: 1.5; padding-left: 8px; border-left: 3px solid #0066cc; }
+        
+        /* Right Side Diagram Engine Framework */
+        .diagram-space { position: relative; height: 460px; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle, rgba(240,248,255,0.5) 0%, rgba(255,255,255,0) 70%); }
+        .diagram-container { position: relative; width: 400px; height: 400px; }
+        
+        /* Center Hub Node layout mapping */
+        .center-hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 125px; height: 125px; background: #0066cc; border-radius: 50%; border: 6px solid #e0f2fe; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 10px; box-shadow: 0 10px 25px rgba(0,102,204,0.3); z-index: 10; }
+        .center-hub .main-txt { font-size: 13.5px; font-weight: 800; letter-spacing: 0.3px; line-height: 1.2; }
+        .center-hub .sub-txt { font-size: 9.5px; font-weight: 700; text-transform: uppercase; background: #ea580c; padding: 2px 6px; border-radius: 10px; margin-top: 4px; letter-spacing: 0.3px; }
+        
+        /* Orbiting Node Loop Blueprint Coordinates */
+        .satellite-node { position: absolute; width: 72px; height: 72px; background: white; border: 2px solid #0066cc; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6px; box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+        .satellite-node i { font-size: 16px; color: #ea580c; margin-bottom: 3px; }
+        .satellite-node span { font-size: 9.5px; font-weight: 700; color: #0f172a; line-height: 1.1; }
+        
+        /* Circular Layout Positioning Coordinates Mapping */
+        .node-1 { top: 0%; left: 50%; transform: translateX(-50%); }
+        .node-2 { top: 22%; right: 2%; }
+        .node-3 { bottom: 22%; right: 2%; }
+        .node-4 { bottom: 0%; left: 50%; transform: translateX(-50%); }
+        .node-5 { bottom: 22%; left: 2%; }
+        .node-6 { top: 22%; left: 2%; }
+        
+        /* Connecting ring container line map style */
+        .orbit-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 280px; height: 280px; border: 2px dashed #94a3b8; border-radius: 50%; opacity: 0.4; z-index: 1; }
+        
+        /* Red Urgency Stamp Badge Component */
+        .urgency-stamp { position: absolute; bottom: 25px; right: -5px; background: #dc2626; color: white; width: 85px; height: 85px; border-radius: 50%; border: 3px dashed white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transform: rotate(-10deg); box-shadow: 0 8px 20px rgba(220,38,38,0.3); font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; line-height: 1.2; padding: 4px; z-index: 12; }
+        
+        /* Bottom Highlight Target Metrics Space */
+        .bottom-features-bar { background: #f8fafc; border-top: 1px solid #e2e8f0; display: grid; grid-template-columns: repeat(4, 1fr); padding: 25px 40px; gap: 20px; }
+        .feature-box { text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .feature-box .icon-circle { width: 44px; height: 44px; background: #e0f2fe; border-radius: 50%; color: #0066cc; display: flex; justify-content: center; align-items: center; font-size: 16px; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(0,102,204,0.06); }
+        .feature-box h4 { font-size: 13.5px; color: #0f172a; font-weight: 700; margin-bottom: 3px; }
+        .feature-box p { font-size: 11px; color: #64748b; font-weight: 500; line-height: 1.3; }
+        
+        /* Call To Action Strip Footer Layout */
+        .cta-footer { background: #ffcc00; color: #002244; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 13px; border-top: 2px solid #e2b600; }
+        .cta-left-text { display: flex; align-items: center; gap: 6px; }
+        .cta-left-text i { color: #dc2626; font-size: 14px; }
+        .contact-group { display: flex; gap: 22px; font-size: 13.5px; }
+        .contact-link { color: #002244; text-decoration: none; display: flex; align-items: center; gap: 6px; font-weight: 700; }
+        .contact-link i { color: #0066cc; font-size: 14px; }
+        .contact-link i.fa-whatsapp { color: #25d366; }
     </style>
 </head>
 <body>
-
-    <div class="flyer-wrapper">
-        <!-- Blue Header -->
-        <div class="header">
-            <h1>FREE LIVE DEMO: NEXT-GEN SAP & GENAI</h1>
-            <div class="topics">Mastering SAP Joule • SAP BTP • RAP • Cloud ABAP • Fiori</div>
-            <div class="schedule-badge">📅 Sunday, October 4th, 2026 &nbsp;|&nbsp; ⏰ 8:00 AM – 9:00 AM IST</div>
-        </div>
-        
-        <!-- Center Cards Grid -->
-        <div class="grid-space">
-            <!-- Left Instructor Card -->
-            <div class="info-card">
-                <h2>Meet Your Instructor</h2>
-                <div class="metric-item">⭐ 16+ Years Industry Experience</div>
-                <div class="metric-item">🎓 4000+ Students Successfully Trained</div>
-                <p class="bio-text">Bobby is a Senior SAP Consultant working at a leading MNC, specializing in enterprise Cloud Architecture, RAP, BTP, and modern development frameworks.</p>
+    <div class="flyer-canvas">
+        <!-- Main Top Header -->
+        <header class="header-section">
+            <div class="header-left">
+                <span class="masterclass-badge"><i class="fa-solid fa-globe"></i> Free Live Demo</span>
+                <h1 class="main-title">Next-Gen SAP & GenAI</h1>
+                <p class="subtitle">Mastering SAP Joule • SAP BTP • RAP • Cloud ABAP • Fiori</p>
             </div>
+            <div class="shape-badge">
+                Shape Your Future<br>with SAP Joule!
+            </div>
+        </header>
+        
+        <!-- Two Column Main Body Grid Area -->
+        <main class="main-grid">
             
-            <!-- Right Features Card -->
-            <div class="info-card">
-                <h2>Why Join This Training?</h2>
-                <ul class="feature-list">
-                    <li><strong>Job-Oriented Curriculum:</strong> Focused completely on live end-to-end industry scenarios.</li>
-                    <li><strong>Flexible Learning:</strong> Get access to interactive live sessions + recording options.</li>
-                    <li><strong>Hands-on Practice:</strong> Real-world exercises assigned every single Friday.</li>
-                    <li><strong>Interview Preparation:</strong> Comprehensive study notes, design diagrams, and Q&A kits.</li>
-                </ul>
+            <!-- Left Information Column Area -->
+            <section class="info-column">
+                <div class="alert-callout">
+                    <div class="alert-headline">
+                        <i class="fa-solid fa-triangle-exclamation"></i> STOP LEARNING SAP THEORY. START BUILDING REAL-TIME PROJECTS! <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <p class="alert-body">
+                        If you aren't building Agentic AI workflows and mastering SAP Build/RAP in 2026, you are leaving high-paying MNC opportunities on the table. Transform from a Traditional ABAPer into a highly-certified BTP Cloud Architect!
+                    </p>
+                </div>
+                
+                <div class="meta-schedule-row">
+                    <div class="meta-pill orange-pill">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Sunday, October 4th, 2026</span>
+                    </div>
+                    <div class="meta-pill blue-pill">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>8:00 AM – 9:00 AM IST</span>
+                    </div>
+                </div>
+                
+                <div class="section-title-wrapper">
+                    <i class="fa-solid fa-diamond"></i>
+                    <h2 class="section-h2">Why Join This Training?</h2>
+                </div>
+                
+                <div class="checklist-wrapper">
+                    <div class="checklist-item">
+                        <i class="fa-solid fa-check"></i>
+                        <p class="checklist-content"><strong>Job-Oriented Curriculum:</strong> Focused completely on live end-to-end industry scenarios.</p>
+                    </div>
+                    <div class="checklist-item">
+                        <i class="fa-solid fa-check"></i>
+                        <p class="checklist-content"><strong>Flexible Learning:</strong> Get access to interactive live sessions + recording options.</p>
+                    </div>
+                    <div class="checklist-item">
+                        <i class="fa-solid fa-check"></i>
+                        <p class="checklist-content"><strong>Hands-on Practice:</strong> Real-world exercises assigned every single Friday.</p>
+                    </div>
+                    <div class="checklist-item">
+                        <i class="fa-solid fa-check"></i>
+                        <p class="checklist-content"><strong>Interview Preparation:</strong> Comprehensive study notes, design diagrams, and Q&A kits.</p>
+                    </div>
+                </div>
+                
+                <div class="instructor-card">
+                    <div class="instructor-top-row">
+                        
+                            <i class="fa-solid fa-user-tie" style="color:#0066cc;"></i>
+                            <span>Meet Your Instructor</span>
+                        </div>
+                        <div class="badge-container">
+                            <span class="instructor-mini-badge yellow"><i class="fa-solid fa-star"></i> 16+ Years Experience</span>
+                            <span class="instructor-mini-badge blue"><i class="fa-solid fa-graduation-cap"></i> 4000+ Students</span>
+                        </div>
+                    </div>
+                    <p class="instructor-bio">
+                        Bobby is a Senior SAP Consultant working at a leading MNC, specializing in enterprise Cloud Architecture, RAP, BTP, and modern development frameworks.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Right Network Hub Diagram Canvas Column Area -->
+            <section class="diagram-space">
+                <div class="diagram-container">
+                    <div class="orbit-ring"></div>
+                    
+                    <div class="center-hub">
+                        <span class="main-txt">SAP Joule</span>
+                        <span class="sub-txt">AGENTIC AI</span>
+                    </div>
+                    
+                    <div class="satellite-node node-1">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <span>SAP Joule</span>
+                    </div>
+                    <div class="satellite-node node-2">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>GenAI</span>
+                    </div>
+                    <div class="satellite-node node-3">
+                        <i class="fa-solid fa-cubes"></i>
+                        <span>SAP BTP</span>
+                    </div>
+                    <div class="satellite-node node-4">
+                        <i class="fa-solid fa-code-branch"></i>
+                        <span>RAP</span>
+                    </div>
+                    <div class="satellite-node node-5">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Cloud ABAP</span>
+                    </div>
+                    <div class="satellite-node node-6">
+                        <i class="fa-solid fa-window-maximize"></i>
+                        <span>Fiori</span>
+                    </div>
+                </div>
+                
+                <div class="urgency-stamp">
+                    LIMITED<br>SEATS<br>AVAILABLE!
+                </div>
+            </section>
+        </main>
+        
+        <!-- Bottom Features Bar Matrix -->
+        <footer class="bottom-features-bar">
+            <div class="feature-box">
+                <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h4>Target Audience</h4>
+                <p>Freshers & IT Professionals.</p>
             </div>
-        </div>
+            <div class="feature-box">
+                <div class="icon-circle"><i class="fa-solid fa-code"></i></div>
+                <h4>Prerequisites</h4>
+                <p>Basic programming background.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon-circle"><i class="fa-solid fa-comments"></i></div>
+                <h4>Interactive Sync</h4>
+                <p>Clear doubts live with Bobby.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon-circle"><i class="fa-solid fa-chart-line"></i></div>
+                <h4>Opportunities</h4>
+                <p>Unlock high-paying MNC roles.</p>
+            </div>
+        </footer>
         
-        <!-- Audience Note Row -->
-        <div class="audience-bar">
-            <h3>Target Audience & Prerequisites</h3>
-            <p>Designed for Freshers, SAP Developers, and IT Professionals. Minimum prerequisite: Any basic programming background.</p>
-        </div>
-        
-        <!-- Orange Footer Banner -->
-        <div class="footer">
-            <div class="cta-headline">👇 REGISTRATION LINK IS IN THE LINKEDIN POST COMMENTS BELOW!</div>
-            <div class="contact-details">📞 Contact: +91 8884473675 &nbsp;|&nbsp; ✉ Email: bobby.sapui5@gmail.com</div>
-        </div>
+        <!-- Call to Action Banner Line -->
+        <footer class="cta-footer">
+            <div class="cta-left-text">
+                <i class="fa-solid fa-location-arrow"></i>
+                <span>REGISTRATION LINK IS IN THE LINKEDIN POST COMMENTS BELOW!</span>
+            </div>
+            <div class="contact-group">
+                <a href="tel:+918884473675" class="contact-link"><i class="fa-solid fa-phone"></i> Call: +91 8884473675</a>
+                <a href="https://wa.me" class="contact-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="mailto:bobby.sapui5@gmail.com" class="contact-link"><i class="fa-solid fa-envelope"></i> Email</a>
+            </div>
+        </footer>
     </div>
 
 </body>
